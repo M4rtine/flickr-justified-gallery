@@ -9,7 +9,9 @@
         var defaults = {
             flickrApiKey: "",
             flickrUserID: "",
-            flickrApiMethod: "flickr.people.getPublicPhotos",
+            flickrGroupID: "",
+            flickrApiMethod: "flickr.groups.pools.getPhotos",
+            // flickrApiMethod: "flickr.people.getPublicPhotos",
             flickrApiUrl: "https://api.flickr.com/services/rest/?jsoncallback=?",
             flickrPerPage: "15",
             justifiedGallerySettings: undefined
@@ -33,6 +35,7 @@
                 method: settings.flickrApiMethod,
                 api_key: settings.flickrApiKey,
                 user_id: settings.flickrUserID,
+                group_id: settings.flickrGroupID,
                 per_page: settings.flickrPerPage,
                 format: "json"
             };
@@ -44,12 +47,9 @@
             flickrRequest.done(function(response) {
                 for (var i = 0; i < settings.flickrPerPage; i++) {
                     var photo = response.photos.photo[i];
-                    var url = "http://farm" + photo.farm +
-                        ".staticflickr.com/" + photo.server +
-                        "/" + photo.id + "_" + photo.secret + ".jpg";
+                    var baseUrl = "http://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret;
                     var title = (photo.title == "") ? "Untitled" : photo.title;
-                    var html = '<a href="https://www.flickr.com/photos/kyleladd/' + photo.id + '">' +
-                                '<img alt="' + title + '" src="' + url +'"/></a>';
+                    var html = '<a href="'+baseUrl+'_b.jpg"><img alt="' + title + '" src="'+baseUrl+'_b.jpg" /></a>';
                     $gallery.append(html);
                 }
                 $gallery.justifiedGallery(settings.justifiedGallerySettings);
