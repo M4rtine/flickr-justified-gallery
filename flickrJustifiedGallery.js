@@ -14,6 +14,7 @@
             // flickrApiMethod: "flickr.people.getPublicPhotos",
             flickrApiUrl: "https://api.flickr.com/services/rest/?jsoncallback=?",
             flickrPerPage: "15",
+            flickrTags: "",
             justifiedGallerySettings: undefined
         };
 
@@ -37,6 +38,8 @@
                 user_id: settings.flickrUserID,
                 group_id: settings.flickrGroupID,
                 per_page: settings.flickrPerPage,
+                tags: settings.flickrTags,
+                //tags: $('#flickrid').html(), dynamic loading
                 format: "json"
             };
 
@@ -49,7 +52,7 @@
                     var photo = response.photos.photo[i];
                     var baseUrl = "http://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret;
                     var title = (photo.title == "") ? "Untitled" : photo.title;
-                    var html = '<a href="'+baseUrl+'_b.jpg"><img alt="' + title + '" src="'+baseUrl+'_b.jpg" /></a>';
+                    var html = '<a href="'+baseUrl+'_b.jpg"><img alt="' + title + '" src="'+baseUrl+'_m.jpg" /></a>';
                     $gallery.append(html);
                 }
                 $gallery.justifiedGallery(settings.justifiedGallerySettings);
