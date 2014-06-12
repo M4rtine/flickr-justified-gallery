@@ -1,4 +1,10 @@
 ## Flickr Justified Gallery
+Correction for a groop pool and tag using
+
+
+
+
+## Flickr Justified Gallery
 
 This gallery plugin allows you to create a Flickr photostream-like gallery for your application
 while still using Flickr to host your image files. The plugin use the Flickr API to gather a list
