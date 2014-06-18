@@ -1,6 +1,8 @@
 ## Flickr Justified Gallery update
 Correction for a groop pool and tag using
 
+Correction for a better way to load user link on flickr
+
 
 
 
