@@ -3,6 +3,8 @@ Correction for a groop pool and tag using
 
 Correction for a better way to load user link on flickr
 
+Correction of not loading class process when there is not enough photos
+
 
 
 
