@@ -48,7 +48,8 @@
                     flickrData);
 
             flickrRequest.done(function(response) {
-                for (var i = 0; i < settings.flickrPerPage; i++) {
+                    var count = Math.min(settings.flickrPerPage, response.photos.photo.length);
+		    for (var i = 0; i < count; i++) {
                     var photo = response.photos.photo[i];
                     var baseUrl = "http://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret;
                     var title = (photo.title == "") ? "Untitled" : photo.title;
