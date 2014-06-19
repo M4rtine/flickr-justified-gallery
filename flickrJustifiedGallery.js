@@ -22,8 +22,8 @@
             if (settings.flickrApiKey == "")
                 throw 'flickrApiKey must be defined';
 
-            if (settings.flickrUserID == "")
-                throw 'flickrUserID must be defined';
+            //if (settings.flickrUserID == "")
+                //throw 'flickrUserID must be defined';
         }
 
         return this.each(function (index, gallery) {
@@ -39,7 +39,6 @@
                 group_id: settings.flickrGroupID,
                 per_page: settings.flickrPerPage,
                 tags: settings.flickrTags,
-                //tags: $('#flickrid').html(), dynamic loading
                 format: "json"
             };
 
